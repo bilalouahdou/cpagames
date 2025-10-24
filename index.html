@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download Shadow Runner: Neon Escape - A fast-paced cyber-parkour game. Available on Android and iOS.">
+    <meta property="og:title" content="Shadow Runner: Neon Escape - gamesHup">
+    <meta property="og:description" content="Fast-paced cyber-parkour game. Dash across rooftops, dodge drones, and master neon power-ups.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://picsum.photos/1200/630?random=1">
+    <title>Shadow Runner: Neon Escape - Download on gamesHup</title>
+    
+    <style>
+        /* CSS Variables for easy color tweaking */
+        :root {
+            --color-dark: #0f0f1e;
+            --color-darker: #0a0a14;
+            --color-accent-blue: #00d4ff;
+            --color-accent-purple: #b300ff;
+            --color-accent-lime: #39ff14;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #b0b0c0;
+            --color-border: #2a2a3e;
+            --color-hover: rgba(0, 212, 255, 0.1);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --radius: 0.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--color-dark);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--color-darker);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--spacing-md) var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.05em;
+        }
+
+        nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            margin-left: var(--spacing-lg);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--color-accent-blue);
+            outline: none;
+        }
+
+        nav a:focus {
+            outline: 2px solid var(--color-accent-blue);
+            outline-offset: 2px;
+            border-radius: var(--radius);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+            color: var(--color-text-primary);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.8;
+        }
+
+        .platforms {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background-color: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--color-accent-blue);
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-accent-blue);
+            transition: var(--transition);
+        }
+
+        .badge:hover {
+            background-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            color: var(--color-accent-lime);
+            font-weight: 700;
+        }
+
+        .review-count {
+            color: var(--color-text-secondary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+            color: var(--color-dark);
+            text-decoration: none;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button:focus {
+            outline: 2px solid var(--color-accent-lime);
+            outline-offset: 2px;
+        }
+
+        .cta-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Game Card */
+        .game-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-darker);
+            transition: var(--transition);
+        }
+
+        .game-card:hover {
+            border-color: var(--color-accent-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin: var(--spacing-xl) 0;
+            padding: var(--spacing-xl) 0;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .reviews-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .review-card {
+            padding: var(--spacing-lg);
+            background-color: var(--color-darker);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            border-color: var(--color-accent-purple);
+            transform: translateY(-4px);
+        }
+
+        .review-text {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-md);
+            font-style: italic;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--color-accent-blue);
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-darker);
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-copyright {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--color-accent-blue);
+            outline: none;
+        }
+
+        .footer-links a:focus {
+            outline: 2px solid var(--color-accent-blue);
+            outline-offset: 2px;
+            border-radius: var(--radius);
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            nav {
+                display: flex;
+                gap: var(--spacing-md);
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            main {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">gamesHup</div>
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#download">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home" aria-labelledby="game-title">
+            <div class="hero-content">
+                <h1 id="game-title">Shadow Runner: Neon Escape</h1>
+                <p>Fast-paced cyber-parkour game. Dash across rooftops, dodge drones, and master neon power-ups to escape the city's AI security grid.</p>
+                
+                <div class="platforms" aria-label="Available platforms">
+                    <span class="badge">
+                        <span aria-hidden="true">📱</span>
+                        <span>Android</span>
+                    </span>
+                    <span class="badge">
+                        <span aria-hidden="true">🍎</span>
+                        <span>iOS</span>
+                    </span>
+                </div>
+
+                <div class="rating" aria-label="Game rating">
+                    <span class="stars">★ 4.6</span>
+                    <span class="review-count">(2,318 reviews)</span>
+                </div>
+
+                <a href="#download" class="cta-button" id="download">Download Now</a>
+            </div>
+
+            <div class="game-card">
+                <img src="https://picsum.photos/600/400?random=1" alt="Shadow Runner: Neon Escape - Game cover showing a neon-lit cyberpunk cityscape with a parkour character">
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section" id="reviews" aria-labelledby="reviews-title">
+            <h2 id="reviews-title">What Players Say</h2>
+            <div class="reviews-grid">
+                <article class="review-card">
+                    <p class="review-text">"Addictive and super smooth."</p>
+                    <p class="review-author">— Lina</p>
+                </article>
+                <article class="review-card">
+                    <p class="review-text">"Graphics are 🔥."</p>
+                    <p class="review-author">— Omar</p>
+                </article>
+                <article class="review-card">
+                    <p class="review-text">"Perfect challenge curve."</p>
+                    <p class="review-author">— Yassine</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p class="footer-copyright">© 2025 gamesHup — All rights reserved.</p>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
